@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = [9, [[[3], 8], 0]];
+        let b = a.reduce((acc, val) => {
+            return acc.concat(Array.isArray(val) ? val.flat(Infinity) : val);
+        }, []);
+        //flat(Infinity)这个括号里面的可以不写吗，感觉不是很懂啊:(
+        console.log(b);
+        function d(arr) {
+            return arr.reduce((acc, val) => {
+                return acc.concat(Array.isArray(val) ? d(val) : val);
+            }, []);
+        }
+
+        let v = [9, [4, [7], 6]];
+        let e = d(v);
+        console.log(e);
+    </script>
+</body>
+
+</html>
