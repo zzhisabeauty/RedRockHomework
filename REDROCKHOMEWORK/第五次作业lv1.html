@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script>
+        /*学长我看AI他让我用parselnt来把字符串类型转换成数字类型但是
+        后台显示的是parselnt没有定义我翻了我借的js的书也没看到。。
+        也可能是书太基础了。。。
+        let num1 = prompt('please input a number');
+        let num = parselnt(num1, 10);*/
+        let num1 = prompt('please input a number ');
+        num1 = num1 - 0;
+        function jiecheng(n) {
+            if (n <= 1) return 1;
+            return n * jiecheng(n - 1);
+        }
+        alert("结果是" + jiecheng(num1));
+    </script>
+</body>
+
+</html>

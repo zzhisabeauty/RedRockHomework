@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //const era={{},a:1,b:2,n:'po'};为啥空括号他会标红，但是我看书上
+        //写空括号在object.assign里面没问题:(
+        const era = { a: 1, b: 2, n: 'po' };
+        const now = { ...era };
+        now.n = 9;
+        console.log(era);
+        console.log(now);
+    </script>
+</body>
+
+</html>

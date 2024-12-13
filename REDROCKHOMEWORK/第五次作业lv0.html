@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const person = {
+            name: '喵',
+            age: 9,
+            address: {
+                city: 'newyork',
+                area: 'miaom',
+            },
+            title: ['master', { year: 2000, title: 'good' }]
+        }
+        const { name: sname } = person;
+        console.log(sname);
+        const { area: mountain } = person.address;
+        console.log(mountain);
+        const { city } = person.address;
+        console.log(city);
+        person.title[1].year = 1000;
+        console.log(person.title[1].year);
+        // const {person.title[1].title:title1 }=person可
+        //以像这样给里面的title改名吗。。。
+        /* 这种能做到解构赋值吗
+         const { title: title1 } = person.title[0];
+          console.log(title1);
+          const { title: title2 } = person.title.title;
+          console.log(title2);*/
+        const [title1, m] = ['master', { year: 2000, title: 'good' }]
+        console.log(title1);
+        /*  const { title: title2 } = m;
+          console.log(title2);
+          Live reload enabled
+          这样写为啥不行*/
+        //这个title2不晓得囊个搞
+    </script>
+</body>
+
+</html>
