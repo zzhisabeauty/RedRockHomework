@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello wyyyy</title>
+
+    <style>
+        .hengxian {
+            margin-left: 33px;
+            margin-right: 33px;
+            color: #f8f9fa;
+        }
+
+        .san {
+            padding-right: 23px;
+            border-radius: 5px;
+            border-width: 1px;
+            line-height: 12px;
+            font-family: '微软雅黑';
+            background-color: #f0f3f6;
+            cursor: pointer;
+            margin-left: 23px;
+            margin-right: 23px;
+            margin-bottom: 1px;
+            color: #414552;
+
+        }
+
+
+        .san:hover {
+            background-color: hsl(40, 4%, 86%)
+        }
+
+        #box {
+
+            display: flex;
+
+            flex-direction: column;
+            background-color: #f0f3f6;
+            width: 206px;
+            height: 700px;
+            text-align: center;
+        }
+
+        #s {
+            color: #656c7a;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            padding-right: 50px;
+        }
+
+        #s:hover {
+            color: hsl(34, 5%, 30%)
+        }
+
+        #ban {
+            display: flex;
+            flex-direction: row;
+            background-color: #f7f9fc;
+            width: 1343px;
+            overflow: hidden;
+
+        }
+
+
+        #h {
+            margin-top: 186px;
+            margin-left: -2248px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        #m {
+            margin-top: -110px;
+            margin-right: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            position: relative;
+        }
+
+
+
+        .xuan1 {
+            opacity: 0;
+            background-color: #84596e;
+            color: white;
+            position: absolute;
+            width: 176px;
+            bottom: -100%;
+            transition: opacity 0.3s ease;
+
+        }
+
+        #m:hover.xuan1 {
+            bottom: 0;
+            opacity: 1;
+        }
+
+        .xuan2 {
+            background-color: #6a29be;
+            color: white;
+            left: 0;
+            position: absolute;
+            width: 176px;
+
+        }
+
+        .xuan3 {
+            bottom: 0;
+            background-color: #932a15;
+            color: white;
+            position: absolute;
+            width: 176px;
+
+
+        }
+
+        .xuan4 {
+
+            background-color: #83499b;
+            color: white;
+            position: absolute;
+            width: 176px;
+
+        }
+
+        .xuan5 {
+
+            background-color: #938558;
+            color: white;
+            position: absolute;
+            width: 176px;
+
+
+        }
+
+
+
+        #search {
+            display: block;
+            margin-left: 90px;
+            margin-bottom: 40px;
+
+            height: 36px;
+        }
+
+
+        .tupian {
+            margin-left: 48px;
+            margin-top: 251px;
+        }
+
+
+
+        #轮播2 {
+
+            width: 3900px;
+            margin-top: -52px;
+            margin-left: -133px;
+
+        }
+
+        #轮播2 ul {
+
+            list-style: none;
+            margin-top: 120px;
+
+        }
+
+        #轮播2 ul li {
+            flex-wrap: none;
+            float: left;
+            margin-left: 3px;
+            margin-top: 20px;
+        }
+
+
+
+        .套娃 ul {
+            list-style: none;
+            margin-left: -107px;
+            margin-top: 100px;
+            font-size: 18px;
+            height: 20px;
+
+        }
+
+        .套娃 ul li {
+            float: left;
+            margin-right: 24px;
+        }
+
+        .mm2 {
+            float: left;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .signin {
+            margin-left: 150px;
+            margin-top: 20px;
+        }
+
+        .vip {
+            margin-top: 29px;
+            margin-left: 7px;
+        }
+
+        .zi {
+            color: rgb(211, 211, 211);
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .zi:hover {
+            color: #656c7a
+        }
+
+        .sing {
+            margin-left: 10px;
+            margin-top: 20px;
+        }
+
+        #search button {
+            height: 36px;
+            margin-top: 20px;
+            margin-right: 7px;
+            margin-left: -45px;
+            width: 25px;
+            background-color: #f7f9fc;
+
+        }
+
+        .jian {
+            position: absolute;
+            margin-top: 60px;
+            margin-left: 40px;
+            font-size: 40px;
+            display: flex;
+            flex-direction: row;
+            margin-right: 100px;
+
+        }
+
+        .carousel-inner {
+
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+
+            transition: all 0.5s ease;
+        }
+
+        .q1 {
+            margin-left: 1103px;
+        }
+
+        #search button:hover {
+            background-color: #d5d7da;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="ban">
+        <div id="box">
+            <span>
+                <img src="wyy.jpg" width="206px" height="88px">
+            </span>
+            <div class="san">
+                <p>精选
+            </div>
+            <div class="san">
+                <p>播客
+            </div>
+            <div class="san">
+                <p>关注
+            </div>
+            <div class="hengxian">
+                <hr>
+            </div>
+            </span>
+            <div class="san">
+                <p>我喜欢的音乐
+            </div>
+            <div class="san">
+                <p>最近播放
+            </div>
+            <div class="san">
+                <p>下载管理
+            </div>
+            <div class="san">
+                <p>本地音乐
+            </div>
+            <div class="hengxian">
+                <hr>
+            </div>
+            <div id="s">
+                <p>创建的歌单
+            </div>
+            <div class="hengxian">
+                <hr>
+            </div>
+        </div>
+        <!--为啥我把class写在div上把这几个链接打包在里面没有任何改变-->
+        <!--变成块级元素也是-->
+        <!--这样写就不方便改变点击后搜索框的颜色-->
+        <!--为啥注释不能用斜杠之类的了。。-->
+        <div id="search">
+            <div class="mm2">
+                <!--不知道引用的什么字符-->
+
+                <button style="border-radius: 5px;border: 1px solid;border-color: #afb0b1;color: #656c7a;">
+                    &#10094 </button>
+                <input type="text " placeholder="唯一 最近很火哦" style="height:34px;width:300px;font-size: 16px;border-radius: 5px; border: 1px solid;border-color: whitesmoke;background:linear-gradient(to left,#f7eff7,#eaf0fb);outline: none
+                   ;margin-top: 20px;">
+                <!--这个听歌识曲太复杂了只会贴图-->
+                <!--不太懂他这个图片为啥悬停时会变色背景-->
+                <div class="sing">
+                    <img src="sing1.jpg">
+                </div>
+                <div class="signin">
+                    <img src="deng1.jpg">
+
+                </div>
+                <div class="zi">
+                    <p>未登录</p>
+                </div>
+                <div class="vip">
+                    <img src="vip.jpg">
+                </div>
+            </div>
+            <div class="tab">
+                <div class=" 套娃" style="height: 16px;">
+
+                    <!--链接的盒子高度无法改变-->
+                    <ul>
+                        <li> <a href="#" style="text-decoration: none;color:rgba(76, 73, 78, 0.6);">精选</a></li>
+                        <li> <a href="#" style="text-decoration: none;color:rgba(76, 73, 78, 0.6);">damn</a></li>
+                        <li> <a href="#" style="text-decoration: none;color:rgba(76, 73, 78, 0.6);">为什么</a></li>
+                        <li> <a href="#" style="text-decoration: none;color:rgba(76, 73, 78, 0.6);">心态爆炸了</a></li>
+                    </ul>
+                </div>
+                <div class="tab-con">
+
+
+
+                    <div id="轮播2">
+                        <div class="carousel-inner">
+                            <ul>
+
+                                <li><a href="#" class="carousel-item active"><img src="p1.jpg"></a></li>
+                                <li><a href="#" class="carousel-item"><img src="p2.jpg"></a></li>
+                                <li><a href="#" class="carousel-item"> <img src="p3.jpg"></a></li>
+                                <li><a href="#" class="carousel-item"> <img src="p4.jpg"></a></li>
+                                <li><a href="#" class="carousel-item"> <img src="p5.jpg"></a></li>
+                                <li><a href="#" class="carousel-item"> <img src="p6.jpg"></a></li>
+
+                            </ul>
+                        </div>
+                        <!--滚动圆圈-->
+                        <div class="yuan">
+                            <ol class="quan">
+
+                            </ol>
+                        </div>
+                        <div class="jian">
+                            <div> <a href="#" class="carousel-control prev" onclick="changeSlide(-1)"
+                                    style="text-decoration: none;color: #c9c8c9;">&#10094;</a>
+                            </div>
+                            <div class="q1"> <a href="#" class="carousel-control next" onclick="changeSlide(1)"
+                                    style="text-decoration: none;color: #c9c8c9;">&#10095;</a></div>
+                        </div>
+
+                    </div>
+
+                    <!--我弄三个链接就是横的正常的-->
+                    <!--我滴妈为啥再弄一个他们几个就字竖着横着排列了？-->
+                    <!--而且还不能在head那里注释我的代码像屎山-->
+                    <!--然后那几个感叹号important完全不起作用-->
+
+                    <!---->
+                    <div id="m">
+                        <div id="h">
+                            <h3>官方歌单 ></h3>
+                            <img src="ldgg.jpg">
+                            <div class="xuan1">
+                                <!--左侧按钮-->
+
+                                <!--核心滚动区域-->
+                                <p>欧美流行趋势 | Lady Ga</p>
+                                <p>ga, The Weeknd和...</p>
+                                <ol>
+                                    <li>Porker face</li>
+                                    <li>oi</li>
+                                    <li>poppop</li>
+                                </ol>
+                            </div>
+                            <h3>最新音乐 ></h3>
+                        </div>
+
+                        <div class="tupian">
+                            <img src="eg.jpg">
+                            <div class="xuan2">
+                                <p>1111111</p>
+                                <p>1111111...</p>
+                                <ol>
+                                    <li>1</li>
+                                    <li>3</li>
+                                    <li>99898998</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="tupian">
+                            <img src="sb.jpg">
+                        </div>
+                        <div class="xuan3">
+                            <p>1111111</p>
+                            <p>1111111...</p>
+                            <ol>
+                                <li>1</li>
+                                <li>3</li>
+                                <li>99898998</li>
+                            </ol>
+                        </div>
+
+                        <div class="tupian">
+                            <img src="ww.jpg">
+                        </div>
+                        <div class="xuan4">
+                            <p>1111111</p>
+                            <p>1111111...</p>
+                            <ol>
+                                <li>1</li>
+                                <li>3</li>
+                                <li>99898998</li>
+                            </ol>
+                        </div>
+                        <div class="tupian">
+                            <img src="qq.jpg">
+
+                        </div>
+                        <div class="xuan5">
+                            <p>1111111</p>
+                            <p>1111111...</p>
+                            <ol>
+                                <li>1</li>
+                                <li>3</li>
+                                <li>99898998</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!--老实说我本来想用css里面的active来实现点击变红的效果好像不行？-->
+            <!--var div = document.querySelectorAll('.san');-->
+            <!--如果不写All就只有第一个点击了会变红写了都不变了-->
+            <!--他原来那种没有背景底色的图很好插但是他这个图怎么也根据点击颜色改变不懂-->
+            <!-- document.getElementsByClassName('san');这样写不起作用-->
+            <!--点击后再离开好像这种效果是一次性的-->
+            <!--在onfocus这个函数里面改变背景颜色不起作用-->
+            <!--var lianjie = document.querySelector('.套娃');
+            lianjie.onclick = function () {
+                this.style.color = 'black';
+            }是不是那个在链接里面写的权重更高无法改变在点击时-->
+            <!--受不了了为啥这个飘着飘着给我一片空白左边还不受overflow限制真的红温了-->
+            <script>
+                var div = document.querySelector('.san');
+                div.onclick = function () {
+                    this.style.backgroundColor = '#fc3b5b';
+                    this.style.color = 'snow';
+                }
+
+                var text = document.querySelector('input');
+                text.onfocus = function () {
+                    if (this.placeholder === '唯一 最近很火哦') {
+                        this.placeholder = ' ';
+                    }
+                }
+
+                text.onblur = function () {
+                    if (this.placeholder === ' ') {
+                        this.placeholder = '唯一 最近很火哦 ';
+                    }
+                }
+
+                let currentIndex = 0;
+                const itemsPerSlide = 3;
+                const totalItems = document.querySelectorAll('.carousel-item').length;
+                const inner = document.querySelector('.carousel-inner');
+
+                function showSlide(index) {
+                    const offset = -index * (inner.offsetWidth / itemsPerSlide);
+                    inner.style.transform = `translateX(${offset}px)`;
+                }
+
+                function changeSlide(direction) {
+                    currentIndex += direction;
+                    currentIndex = (currentIndex + totalItems) % totalItems;
+                    showSlide(currentIndex);
+                }
+
+                let autoPlayId = setInterval(() => {
+                    changeSlide(1);
+                }, 3000);
+
+
+                inner.addEventListener('mouseover', () => {
+                    clearInterval(autoPlayId);
+                });
+
+                inner.addEventListener('mouseout', () => {
+                    autoPlayId = setInterval(() => {
+                        changeSlide(1);
+                    }, 3000);
+                });
+            </script>
+</body>
+
+</html>
