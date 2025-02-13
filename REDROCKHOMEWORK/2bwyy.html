@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wyyyy</title>
+    <style>
+        #ban {
+            display: flex;
+            flex-direction: row;
+            background-color: #f7f9fc;
+            width: 1343px;
+            overflow: hidden;
+        }
+
+        #box {
+            display: flex;
+            flex-direction: column;
+            background-color: #f0f3f6;
+            width: 206px;
+            height: 700px;
+            text-align: center;
+        }
+
+        .hengxian {
+            margin-left: 33px;
+            margin-right: 33px;
+            color: #f8f9fa;
+        }
+
+        .san {
+            padding-right: 23px;
+            border-radius: 5px;
+            border-width: 1px;
+            line-height: 12px;
+            font-family: '微软雅黑';
+            background-color: #f0f3f6;
+            cursor: pointer;
+            margin-left: 23px;
+            margin-right: 23px;
+            margin-bottom: 1px;
+            color: #414552;
+        }
+
+        .san:hover {
+            background-color: hsl(40, 4%, 86%)
+        }
+
+        #s {
+            color: #656c7a;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            padding-right: 50px;
+        }
+
+        #s:hover {
+            color: hsl(34, 5%, 30%)
+        }
+
+        .active {
+            background-color: #fc3b5b;
+            color: snow;
+        }
+
+        #search {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #search button {
+            height: 36px;
+            margin-top: 20px;
+            margin-right: 7px;
+            margin-left: 45px;
+            width: 25px;
+            background-color: #f7f9fc;
+
+        }
+
+        #searchbox {
+            position: fixed;
+            display: none;
+            background-color: #f8f9fa;
+            bottom: 0;
+            padding: 20px;
+            overflow-y: auto;
+            width: 200px;
+            z-index: 1000;
+        }
+
+        .signin {
+            margin-left: 150px;
+            margin-top: 20px;
+        }
+
+        .vip {
+            margin-top: 29px;
+            margin-left: 7px;
+        }
+
+        .zi {
+            color: rgb(211, 211, 211);
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .zi:hover {
+            color: #656c7a
+        }
+
+        .sing {
+            margin-left: 10px;
+            margin-top: 20px;
+        }
+
+        #lianjie5 {
+            margin-left: 45px;
+            margin-top: 36px;
+            font-size: 18px;
+            display: flex;
+            gap: 26px;
+            cursor: pointer;
+        }
+
+        .clicked {
+            border-bottom: 2px solid #fc3b5b;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="ban">
+        <div id="box">
+            <span>
+                <img src="wyy.jpg" width="206px" height="88px">
+            </span>
+            <div class="san">
+                <p>精选
+            </div>
+            <div class="san">
+                <p>播客
+            </div>
+            <div class="san">
+                <p>关注
+            </div>
+            <div class="hengxian">
+                <hr>
+            </div>
+            <div class="san">
+                <p>我喜欢的音乐
+            </div>
+            <div class="san">
+                <p>最近播放
+            </div>
+            <div class="san">
+                <p>下载管理
+            </div>
+            <div class="san">
+                <p>本地音乐
+            </div>
+            <div class="hengxian">
+                <hr>
+            </div>
+            <div id="s">
+                <p>创建的歌单
+            </div>
+            <div class="hengxian">
+                <hr>
+            </div>
+        </div><!--box的盒盖-->
+
+        <!--第二个大大大盒子--><!--是竖着的这个盒子-->
+        <div id="im">
+            <!--搜索框这一烂--><!--是横着的这个盒子-->
+            <div id="search">
+                <button style="border-radius: 5px;border: 1px solid;border-color: #afb0b1;color: #656c7a;">
+                    &#10094 </button>
+                <input type="text " onclick="togglePanel" placeholder="唯一 最近很火哦" style="height:34px;width:300px;font-size: 16px;border-radius: 5px; border: 1px solid;border-color: whitesmoke;background:linear-gradient(to left,#f7eff7,#eaf0fb);outline: none
+                           ;margin-top: 20px;">
+
+                <div class="sing">
+                    <img src="sing1.jpg">
+                </div>
+                <div class="signin">
+                    <img src="deng1.jpg">
+
+                </div>
+                <div class="zi">
+                    <p>未登录</p>
+                </div>
+                <div class="vip">
+                    <img src="vip.jpg">
+                </div>
+            </div><!--search的盒盖-->
+
+            <div id="searchbox">
+                <input type="text">
+                <button onclick="performSearch()">搜索</button>
+                <p>sousuolishi</p>
+            </div><!--searchbox盒盖-->
+
+
+            <!--链接几个-->
+            <div id="lianjie5">
+                <a href="#" class="lianjie" style="text-decoration: none;color:rgba(76, 73, 78, 0.6);">精选</a>
+                <a href="#" class="lianjie" style="text-decoration: none;color:rgba(76, 73, 78, 0.6);">歌单广场</a>
+                <a href="#" class="lianjie" style="text-decoration: none;color:rgba(76, 73, 78, 0.6);">排行榜</a>
+                <a href="#" class="lianjie" style="text-decoration: none;color:rgba(76, 73, 78, 0.6);">歌手</a>
+                <a href="#" class="lianjie" style="text-decoration: none;color:rgba(76, 73, 78, 0.6);">VIP</a>
+            </div><!--5个链接盒盖-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div><!--im的盒盖-->
+
+
+
+
+
+
+
+
+
+    </div><!--ban的盒盖-->
+    <script>
+        var divs = document.getElementsByClassName("san");
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].onclick = function () {
+                for (var j = 0; j < divs.length; j++) {
+                    divs[j].classList.remove("active");
+                }
+                this.classList.add("active");
+            }
+        }
+
+        function togglePanel() {
+            var searchbox = document.getElementById('searchbox');
+            if (searchbox.style.display == 'block') {
+                searchbox.style.display = 'none';
+            }
+            else {
+                searchbox.style.display = 'block';
+            }
+        }
+        function performSearch() {
+            var query = document.getElementById('searchbox').querySelector('.panel input[type="text"]').value;
+            alert('cdl');
+        }
+
+        var links = document.querySelectorAll('.lianjie ');
+        links.forEach(function (link) {
+            link.addEventListener('click', function () {
+                links.forEach(function (lnk) {
+                    lnk.classList.remove('clicked');
+                });
+                this.classList.add('clicked');
+            });
+        });
+    </script>
+</body>
+
+</html>

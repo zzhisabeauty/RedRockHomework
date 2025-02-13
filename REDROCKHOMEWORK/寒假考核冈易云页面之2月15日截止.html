@@ -67,7 +67,7 @@
 
 
         #h {
-            margin-top: 186px;
+            margin-top: 196px;
             margin-left: -2248px;
             cursor: pointer;
             display: flex;
@@ -154,7 +154,7 @@
 
         .tupian {
             margin-left: 48px;
-            margin-top: 251px;
+            margin-top: 221px;
         }
 
 
@@ -387,14 +387,13 @@
                     <!--我滴妈为啥再弄一个他们几个就字竖着横着排列了？-->
                     <!--而且还不能在head那里注释我的代码像屎山-->
                     <!--然后那几个感叹号important完全不起作用-->
-
-                    <!---->
                     <div id="m">
                         <div id="h">
-                            <h3>官方歌单 ></h3>
+                            <a href="" style="color: black;text-decoration: none;font-size: 18px;">官方歌单 ></a>
+
+
                             <img src="ldgg.jpg">
                             <div class="xuan1">
-                                <!--左侧按钮-->
 
                                 <!--核心滚动区域-->
                                 <p>欧美流行趋势 | Lady Ga</p>
@@ -405,7 +404,7 @@
                                     <li>poppop</li>
                                 </ol>
                             </div>
-                            <h3>最新音乐 ></h3>
+                            <a href="" style="text-decoration: none;color: #414552;font-size: 18px;">最新音乐 ></a>
                         </div>
 
                         <div class="tupian">
@@ -494,6 +493,10 @@
                         this.placeholder = '唯一 最近很火哦 ';
                     }
                 }
+                var text = document.querySelector('input');
+                text.onclick = function () {
+                    this
+                }
 
                 let currentIndex = 0;
                 const itemsPerSlide = 3;
@@ -524,7 +527,7 @@
                     autoPlayId = setInterval(() => {
                         changeSlide(1);
                     }, 3000);
-                });
+                }
             </script>
 </body>
 
