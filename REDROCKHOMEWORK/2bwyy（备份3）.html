@@ -82,9 +82,8 @@
         #searchbox {
             position: fixed;
             display: none;
-            background-color: hsl(0, 0%, 100%);
-            bottom: 20;
-            left: -70;
+            background-color: #f8f9fa;
+            bottom: 0;
             padding: 20px;
             overflow-y: auto;
             width: 200px;
@@ -173,51 +172,6 @@
 
         #im {
             overflow: hidden;
-            overflow-y: auto;
-        }
-
-        #gedan {
-            margin-left: 40px;
-            margin-top: 340px;
-        }
-
-        #m ul li {
-            flex-wrap: none;
-            float: left;
-
-        }
-
-        #m ul {
-            display: flex;
-            gap: 45px;
-            list-style: none;
-            float: left;
-        }
-
-        #m {
-            margin-left: 2px;
-            width: 1900px;
-
-        }
-
-        .jian1 {
-            position: absolute;
-            margin-top: 90px;
-            margin-left: -1px;
-            font-size: 40px;
-            display: flex;
-            flex-direction: row;
-            margin-right: 100px;
-
-        }
-
-        .zuixinyy {
-            margin-left: 40px;
-            margin-top: 280px;
-        }
-
-        .evan {
-            transition: transform 0.5s ease;
         }
     </style>
 
@@ -270,7 +224,7 @@
             <div id="search">
                 <button style="border-radius: 5px;border: 1px solid;border-color: #afb0b1;color: #656c7a;">
                     &#10094 </button>
-                <input type="text " onclick="togglePanel()" placeholder="唯一 最近很火哦" style="height:34px;width:300px;font-size: 16px;border-radius: 5px; border: 1px solid;border-color: whitesmoke;background:linear-gradient(to left,#f7eff7,#eaf0fb);outline: none
+                <input type="text " onclick="togglePanel" placeholder="唯一 最近很火哦" style="height:34px;width:300px;font-size: 16px;border-radius: 5px; border: 1px solid;border-color: whitesmoke;background:linear-gradient(to left,#f7eff7,#eaf0fb);outline: none
                            ;margin-top: 20px;">
 
                 <div class="sing">
@@ -322,36 +276,13 @@
                 <div class="q1"> <a href="#" class="carousel-control next" onclick="changeSlide(1)"
                         style="text-decoration: none;color: #c9c8c9;">&#10095;</a></div>
             </div><!--箭头盒盖-->
-            <!--官方歌单链接-->
-            <div id="gedan">
-                <a href="" style="color: black;text-decoration: none;font-size: 18px;">官方歌单 ></a>
-            </div><!--官方歌单盒盖-->
-            <!--四个图片点击轮播了-->
-            <div id="m" class="evan">
-                <ul>
-                    <li><a href="" class="lc"><img src="ldgg.jpg"></a></li>
-                    <li><a href="" class="lc"><img src="eg.jpg"></a></li>
-                    <li><a href="" class="lc"><img src="sb.jpg"></a></li>
-                    <li><a href="" class="lc"><img src="ww.jpg"></a></li>
-                    <li><a href="" class="lc"><img src="qq.jpg"></a></li>
-                    <li><a href="" class="lc"><img src="214.jpg"></a></li>
-                    <li><a href="" class="lc"><img src="215.jpg"></a></li>
 
-                </ul>
-            </div><!--m的盒盖-->
 
-            <div class="jian1">
-                <div> <a href="#" class="carousel-control prev" onclick="changeSlide1(-1)"
-                        style="text-decoration: none;color: #c9c8c9;">&#10094;</a>
-                </div>
-                <div class="q1"> <a href="#" class="carousel-control next" onclick="changeSlide1(1)"
-                        style="text-decoration: none;color: #c9c8c9;">&#10095;</a></div>
-            </div><!--箭头盒盖-->
 
-            <!--最新音乐-->
-            <div class="zuixinyy">
-                <a href="" style="color: black;text-decoration: none;font-size: 18px;">最新音乐 ></a>
-            </div><!--最新音乐盒盖-->
+
+
+
+
 
 
 
@@ -367,13 +298,10 @@
 
 
 
+
+
     </div><!--ban的盒盖-->
     <script>
-
-        document.querySelector('#im').addEventListener('wheel', function (e) {
-            e.stopPropagation();
-        });
-
         var divs = document.getElementsByClassName("san");
         for (var i = 0; i < divs.length; i++) {
             divs[i].onclick = function () {
@@ -394,7 +322,7 @@
             }
         }
         function performSearch() {
-            var query = document.getElementById('searchbox').querySelector('input[type=text]').value;
+            var query = document.getElementById('searchbox').querySelector('.panel input[type="text"]').value;
             alert('cdl');
         }
 
@@ -422,30 +350,6 @@
             currentIndex += direction;
             currentIndex = (currentIndex + totalItems) % totalItems;
             showSlide(currentIndex);
-        }
-        let autoPlayId = setInterval(() => {
-            changeSlide(1);
-        }, 3000);
-
-
-        inner.addEventListener('mouseover', () => {
-            clearInterval(autoPlayId);
-        });
-
-        inner.addEventListener('mouseout', () => {
-            autoPlayId = setInterval(() => {
-                changeSlide(1);
-            }, 3000);
-        })
-
-        let ct = 0;
-        const slides = document.querySelectorAll('.lc');
-        const ts = slides.length;
-
-        function changeSlide1(direction) {
-            const slideWidth = document.querySelector('.lc').offsetWidth;
-            ct = (ct + directiona + ts) % ts;
-            document.querySelector('.evan').style.transform = 'translateX(-${ct*slideWidth}px)';
         }
     </script>
 </body>

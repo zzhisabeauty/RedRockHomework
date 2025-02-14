@@ -84,11 +84,12 @@
             display: none;
             background-color: hsl(0, 0%, 100%);
             bottom: 20;
-            left: -70;
+            left: 900;
             padding: 20px;
             overflow-y: auto;
             width: 200px;
             z-index: 1000;
+            margin-left: 75px;
         }
 
         .signin {
@@ -173,7 +174,6 @@
 
         #im {
             overflow: hidden;
-            overflow-y: auto;
         }
 
         #gedan {
@@ -209,15 +209,6 @@
             flex-direction: row;
             margin-right: 100px;
 
-        }
-
-        .zuixinyy {
-            margin-left: 40px;
-            margin-top: 280px;
-        }
-
-        .evan {
-            transition: transform 0.5s ease;
         }
     </style>
 
@@ -341,17 +332,12 @@
             </div><!--m的盒盖-->
 
             <div class="jian1">
-                <div> <a href="#" class="carousel-control prev" onclick="changeSlide1(-1)"
-                        style="text-decoration: none;color: #c9c8c9;">&#10094;</a>
+                <div> <a href="#" onclick="changeSlide1(-1)" style="text-decoration: none;color: #c9c8c9;">&#10094;</a>
                 </div>
-                <div class="q1"> <a href="#" class="carousel-control next" onclick="changeSlide1(1)"
+                <div class="q1"> <a href="#" onclick="changeSlide1(1)"
                         style="text-decoration: none;color: #c9c8c9;">&#10095;</a></div>
             </div><!--箭头盒盖-->
 
-            <!--最新音乐-->
-            <div class="zuixinyy">
-                <a href="" style="color: black;text-decoration: none;font-size: 18px;">最新音乐 ></a>
-            </div><!--最新音乐盒盖-->
 
 
 
@@ -369,11 +355,6 @@
 
     </div><!--ban的盒盖-->
     <script>
-
-        document.querySelector('#im').addEventListener('wheel', function (e) {
-            e.stopPropagation();
-        });
-
         var divs = document.getElementsByClassName("san");
         for (var i = 0; i < divs.length; i++) {
             divs[i].onclick = function () {
@@ -438,14 +419,21 @@
             }, 3000);
         })
 
-        let ct = 0;
-        const slides = document.querySelectorAll('.lc');
-        const ts = slides.length;
+
+        let currentIndex1 = 0;
+        const itemsPerSlide1 = 2;
+        const totalItems1 = document.querySelectorAll('.lc').length;
+        const inner1 = document.querySelector('.evan');
+
+        function showSlide1(index1) {
+            const offset = -index1 * (inner1.offsetWidth / itemsPerSlide1) * 0.5;
+            inner1.style.transform = `translateX(${offset}px)`;
+        }
 
         function changeSlide1(direction) {
-            const slideWidth = document.querySelector('.lc').offsetWidth;
-            ct = (ct + directiona + ts) % ts;
-            document.querySelector('.evan').style.transform = 'translateX(-${ct*slideWidth}px)';
+            currentIndex1 += direction;
+            currentIndex1 = (currentIndex1 + totalItems1) % totalItems1;
+            showSlide(currentIndex1);
         }
     </script>
 </body>
