@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <!--compose按从右顺序组合起来-->
+    <!--是不是要对sb1做一个异步化处理-->
+    <!--是因为prompt的问题-->
+    <script>
+        const compose = (...fns) => {
+            return (...args) => {
+                return fns.reduce((composed, fn) => fn(composed), ...args);
+            };
+        };
+        const sb1 = function Message() {
+            const a = prompt('your name');
+            const b = prompt('your age');
+            console.log(a + b);
+            const user = { name: a, age: b };
+            console.log(user);
+            return user;
+        }
+        const user = [
+            { name: ' qq', age: 19 },
+            { name: 'oo', age: 19 },
+            { name: 'pp', age: 18 }
+        ];
+
+        const sb2 = function (user) {
+            const user1 = [
+                user,
+                { name: 'qq', age: 19 },
+                { name: 'oo', age: 19 },
+                { name: 'pp', age: 18 }
+            ];
+            console.log(user1);
+            return user1;
+
+        };
+        const sb3 = function (user) {
+            return user.reduce((acc, obj) => {
+                const key = obj.age;
+                if (!acc[key]) {
+                    acc[key] = [];
+                }
+                acc[key].push(obj);
+                return acc;
+            }, {});
+        };
+        const sb4 = compose(sb3, sb2, sb1);
+        console.log(sb4());
+    </script>
+
+</body>
+
+</html>

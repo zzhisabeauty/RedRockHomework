@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--代码从上到下所以后台先打印出1-->
+    <!--setTimeout也是异步函数放入事件执行列表-->
+    <!--foo执行打出start，await使函数暂停直到bar函数结束-->
+    <!--promise输出p1，开始异步处理，打印2后从上往下打end，time，p2-->
+    <!--看他后台为啥p2在time前。-->
+    <script>
+        async function foo() {
+            console.log("start");
+            await bar();
+            console.log("end");
+        }
+        async function bar() {
+            console.log("bar");
+        }
+        console.log(1);
+
+        setTimeout(() => {
+            console.log("time");
+        });
+        foo();
+        new Promise((resolve) => {
+            console.log("p1");
+            resolve();
+        })
+            .then(() => {
+                console.log("p2");
+            });
+        console.log(2);
+    </script>
+</body>
+
+</html>

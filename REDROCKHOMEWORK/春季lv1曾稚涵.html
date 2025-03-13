@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #big {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-bottom: 200px;
+        }
+
+        #mianban1 {
+            width: 300px;
+            background-color: aqua;
+            height: 100px;
+            display: none;
+            margin-top: -15px;
+        }
+
+        #mianban2 {
+            margin-top: -15px;
+            width: 300px;
+            background-color: rgb(255, 0, 128);
+            height: 100px;
+            display: none;
+        }
+
+        #suggestion {
+            list-style: none;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="big">
+        <div id="jieliu1">
+            <input id="searchInput" type="value" placeholder="防抖" onclick="showPage()">
+            <div id="mianban1">
+                <ul id="suggestion">
+                    <li>a</li>
+                    <li>b</li>
+                    <li>c</li>
+                </ul>
+            </div>
+        </div>
+        <div id="fangdou2"><input id="searchInput1" type="value" placeholder="节流" onclick="showPage1()">
+            <div id="mianban2">
+                <ul id="suggestion1"></ul>
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--看了视频很多没讲我用的那种共用供学习使用的api我也下载了node.js-->
+    <!--那这种api还需要向之前文档里面的还要下载其他之类的吗-->
+    <!--看了一下，如果我用json他就会报错-->
+    <!--有点问题如果我先输入第二个搜索框他面板不会改变要等我第一个输完了才改变？-->
+    <!--甚至第二个我不输就直接弹出来了。。。-->
+    <script>
+        /*防抖*/
+        function debounce(func, time) {
+            let timer;
+            return function (...args) {
+                if (timer) clearTimeout(timer);
+                timer = setTimeout(() => {
+                    func.apply(this.args);
+                }, time);
+            }
+        }
+
+        function suggestionsHandler(data) {
+            const suggestions = data.s;
+            const html = suggestions.map(suggestion => `<li>${suggestion}</li>`).join('');
+            suggestionList.innerHTML = html;
+        }
+        const searchInput = document.getElementById('searchInput');
+        const suggestionList = document.getElementById('suggestion');
+        searchInput.addEventListener('input', debounce(function (event) {
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm.length === 0) {
+                suggestionList.innerHTML = '';
+                return;
+            }
+
+            fetch(`https://api.apiopen.top/searchMusic?name=${encodeURIComponent(searchTerm)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    if (data.code === 200 && data.result) { // 检查返回的数据是否包含结果
+                        const suggestions = data.result.map(item => item.title); // 提取歌曲标题
+                        const html = suggestions.map(suggestion => `<li>${suggestion}</li>`).join('');
+                        suggestionList.innerHTML = html;
+                        suggestionList.style.display = 'block';
+                    } else {
+                        suggestionList.innerHTML = '<li>No suggestions found</li>';
+                        suggestionList.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                    suggestionList.innerHTML = '<li>Error: ' + error.message + '</li>';
+                    suggestionList.style.display
+                });
+        }, 300));
+
+
+
+        /*节流*/
+        function throttle(fn, t) {
+            let timer = null
+            return function () {
+                if (!timer) {
+                    timer = setTimeout(function () {
+                        fn()
+                        timer = null
+                    }, t)
+                }
+            }
+
+        }
+        function suggestionsHandler(data) {
+            const suggestions = data.s;
+            const html = suggestions.map(suggestion => `<li>${suggestion}</li>`).join('');
+            suggestionList.innerHTML = html;
+        }
+        const searchInput1 = document.getElementById('searchInput1');
+        const suggestionList1 = document.getElementById('suggestion1');
+        searchInput.addEventListener('input', throttle(function (event) {
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm.length === 0) {
+                suggestionList1.innerHTML = '';
+                return;
+            }
+            fetch(`https://api.apiopen.top/searchMusic?name=${encodeURIComponent(searchTerm)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    if (data.code === 200 && data.result) {
+                        const suggestions = data.result.map(item => `${item.title} - ${item.author}`); // 提取歌曲标题和作者
+                        const html = suggestions.map(suggestion => `<li>${suggestion}</li>`).join('');
+                        suggestionList1.innerHTML = html;
+                        suggestionList1.style.display = 'block';
+                    } else {
+                        suggestionList1.innerHTML = '<li>No suggestions found</li>';
+                        suggestionList1.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                    suggestionList1.innerHTML = '<li>Error: ' + error.message + '</li>';
+                    suggestionList1.style.display = 'block';
+                });
+        }, 300));
+        function suggestionsHandler(data) {
+            const suggestions = data.s;
+            const html = suggestions.map(suggestion => `<li>${suggestion}</li>`).join('');
+            suggestionList.innerHTML = html;
+        }
+
+        function showPage() {
+            var searchbox = document.getElementById('mianban1');
+            if (searchbox.style.display == 'block') {
+                searchbox.style.display = 'none';
+            }
+            else {
+                searchbox.style.display = 'block';
+            }
+        }
+        function showPage1() {
+            var searchbox = document.getElementById('mianban2');
+            if (searchbox.style.display == 'block') {
+                searchbox.style.display = 'none';
+            }
+            else {
+                searchbox.style.display = 'block';
+            }
+        }
+
+    </script>
+</body>
+
+</html>
